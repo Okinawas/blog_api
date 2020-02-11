@@ -1,0 +1,45 @@
+version: '3' # composeファイルのバージョン指定
+services:
+  mysql:
+    # コンテナに名前をつける
+    container_name: mysql_todo
+    # Dockerfileのあるディレクトリのパスを指定する
+    build:
+      context: .
+      dockerfile: ./docker/mysql/Dockerfile
+    # mysqlのホスト名をきめる
+    hostname: mysql
+    # 外部に公開するポートを指定
+    ports:
+      - 3306:3306
+    # mysqlの指定
+    environment:
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: todo_dev
+    # docker-compse run実行時に実行される
+    # オプションは日本語文の文字化け対策
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci --skip-character-set-client-handshake
+    # パスをボリュームとしてマウント
+    # :の左側がホストディレクトリ、:の右側がコンテナ上のディレクトリ
+    volumes:
+      - ./docker/mysql/db-data:/var/lib/mysql
+      # 初期設定を読み込む
+      - ./docker/mysql/init/:/docker-entry-point-initdb.d
+  app: #service名
+    links:
+      - mysql
+    build:  #ビルドに使用するDockerfileがあるディレクトリ
+      context: ./docker/todo_app
+    container_name: todo_app 
+    tty: true #コンテナの起動永続化
+    volumes:
+      - .:/go/src/github.com/nntakuya/todo_app #マウントディレクトリ指定
+    ports:
+      - 8080:8080
+ # トップレベルでvolumesを定義すると、各サービスからボリュームを参照できる
+volumes:
+  db-data:
+    driver: local
+    
+
