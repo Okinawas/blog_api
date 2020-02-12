@@ -1,9 +1,9 @@
 package controllers
 
 import (
-  "github/nntakuya/matsun_blogs/app/domain"
-  "github/nntakuya/matsun_blogs/app/interfaces/database"
-  "github/nntakuya/matsun_blogs/app/usecase"
+  "github/Okinawas/blog_api/api/domain"
+  "github//Okinawas/blog_api/api/interfaces/database"
+  "github/Okinawas/blog_api/api/usecase"
   "strconv"
 )
 

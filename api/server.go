@@ -1,7 +1,6 @@
 package main
 
-
-import "github/nntakuya/matsun_blogs/app/infrastructure"
+import "github/Okinawas/blog_api/api/infrastructure"
 
 func main() {
   infrastructure.Router.Run()

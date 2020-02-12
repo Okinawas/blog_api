@@ -4,7 +4,7 @@ package infrastructure
 import (
   "database/sql"
   _ "github.com/go-sql-driver/mysql"
-  "github/nntakuya/matsun_blogs/app/interface/database"
+  "github/Okinawas/blog_api/api/interface/database"
 )
 
 type sqlHandler struct {
@@ -76,57 +76,5 @@ func (r SqlRow) Next() bool {
 func (r SqlRow) Close() error {
   return r.Rows.Close()
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
