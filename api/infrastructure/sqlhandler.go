@@ -1,10 +1,9 @@
 package infrastructure
 
-//TODO: import文をgithub経由へ変更
 import (
   "database/sql"
   _ "github.com/go-sql-driver/mysql"
-  "github/Okinawas/blog_api/api/interface/database"
+  "github.com/Okinawas/blog_api/api/interface/database"
 )
 
 type sqlHandler struct {

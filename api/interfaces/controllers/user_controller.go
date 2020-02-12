@@ -1,9 +1,9 @@
 package controllers
 
 import (
-  "github/Okinawas/blog_api/api/domain"
-  "github//Okinawas/blog_api/api/interfaces/database"
-  "github/Okinawas/blog_api/api/usecase"
+  "github.com/Okinawas/blog_api/api/domain"
+  "github.com/Okinawas/blog_api/api/interfaces/database"
+  "github.com/Okinawas/blog_api/api/usecase"
   "strconv"
 )
 

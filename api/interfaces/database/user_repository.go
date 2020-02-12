@@ -1,6 +1,6 @@
 package database
 
-import "github/Okinawas/blog_api/api/domain"
+import "github.com/Okinawas/blog_api/api/domain"
 
 
 type UserRepository struct {

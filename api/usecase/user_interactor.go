@@ -1,6 +1,6 @@
 package usecase
 
-import "github/Okinawas/blog_api/api/domain"
+import "github.com/Okinawas/blog_api/api/domain"
 
 type UserInteractor struct {
   UserRepository UserRepository
