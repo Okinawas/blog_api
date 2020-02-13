@@ -1,6 +1,8 @@
 package database
 
-import "github.com/Okinawas/blog_api/api/domain"
+import (
+  "github.com/Okinawas/blog_api/app/domain"
+)
 
 
 type UserRepository struct {
@@ -8,7 +10,7 @@ type UserRepository struct {
 }
 
 
-func (repo *UsrRepository) Store(u domain.User)(id int, err error) {
+func (repo *UserRepository) Store(u domain.User)(id int, err error) {
   result, err := repo.Execute(
     "INSERT INTO users (first_name, last_name) VALUES (?, ?)", u.FirstName, u.LastName,
   )
@@ -36,7 +38,7 @@ func (repo *UserRepository) FindById(identifier int) (user domain.User, err erro
 
   var id int
   var firstName string
-  var lastNmae string
+  var lastName string
 
   if err = row.Scan(&id, &firstName, &lastName); err != nil {
     return
@@ -48,7 +50,7 @@ func (repo *UserRepository) FindById(identifier int) (user domain.User, err erro
   return
 }
 
-func (repo *UserRepository) FindAll() (users domain.Usres, err error) {
+func (repo *UserRepository) FindAll() (users domain.Users, err error) {
   rows, err := repo.Query("SELECT id, first_name, last_name FROM users")
   defer rows.Close()
   if err != nil {
@@ -63,7 +65,7 @@ func (repo *UserRepository) FindAll() (users domain.Usres, err error) {
       continue
     }
 
-    users := domain.User{
+    user := domain.User{
       ID:        id,
       FirstName: firstName,
       LastName:  lastName,

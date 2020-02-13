@@ -1,6 +1,6 @@
 package usecase
 
-import "github.com/Okinawas/blog_api/api/domain"
+import "github.com/Okinawas/blog_api/app/domain"
 
 type UserRepository interface {
   Store(domain.User) (int, error)
