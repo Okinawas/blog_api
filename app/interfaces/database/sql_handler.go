@@ -1,6 +1,6 @@
 package database
 
-type sqlHandler interface {
+type SqlHandler interface {
   Execute(string, ...interface{}) (Result, error)
   Query(string, ...interface{}) (Row, error)
 }

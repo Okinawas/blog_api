@@ -1,7 +1,6 @@
 package usecase
 
-
-import "github/nntakuya/matsun_blogs/app/domain"
+import "github.com/Okinawas/blog_api/app/domain"
 
 type UserInteractor struct {
   UserRepository UserRepository
@@ -9,8 +8,7 @@ type UserInteractor struct {
 
 
 func (interactor *UserInteractor) Add(u domain.User) (err error) {
-  _, err := interactor.UserRepository.Store(u)
-
+  _, err = interactor.UserRepository.Store(u)
   return
 }
 

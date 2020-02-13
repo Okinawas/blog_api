@@ -1,10 +1,9 @@
 package infrastructure
 
-//TODO: import文をgithub経由へ変更
 import (
   "database/sql"
   _ "github.com/go-sql-driver/mysql"
-  "github/nntakuya/matsun_blogs/app/interface/database"
+  "github.com/Okinawas/blog_api/app/interfaces/database"
 )
 
 type sqlHandler struct {
@@ -12,8 +11,7 @@ type sqlHandler struct {
 }
 
 func NewSqlHandler() database.SqlHnadler {
-  // TODO: dockerのdb名変更後に、下記を修正
-  conn, err = sql.Open("mysql", "root:password@tcp(docker.for.mac.localhost:3306)/todo_dev")
+  conn, err = sql.Open("mysql", "root:password@tcp(docker.for.mac.localhost:3306)/blog_dev")
   if err != nil {
     panic(err.Error)
   }
@@ -76,57 +74,5 @@ func (r SqlRow) Next() bool {
 func (r SqlRow) Close() error {
   return r.Rows.Close()
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

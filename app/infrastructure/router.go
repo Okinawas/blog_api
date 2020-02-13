@@ -2,7 +2,7 @@ package infrastructure
 
 import (
   "github.com/gin-gonic/gin"
-  "github/nntakuya/matsun_blogs/app/interfaces/controllers"
+  "github.com/Okinawas/blog_api/app/interfaces/controllers"
 )
 
 var Router *gin.Engine
