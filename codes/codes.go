@@ -2,7 +2,7 @@ package codes
 
 type Code string
 
-cosnt (
+const (
   OK             Code = "OK"
 
   InvalidSyntax  Code = "invalid_syntax"

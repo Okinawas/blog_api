@@ -2,7 +2,7 @@ package errors
 
 import (
   "fmt"
-  "github.com/Okinawas/codes"
+  "github.com/Okinawas/blog_api/codes"
   "github.com/pkg/errors"
 )
 
@@ -21,13 +21,13 @@ func Errorf(c codes.Code, format string, a ...interface{}) error {
     return nil
  }
  return privateError {
-   code: c
+   code: c,
    err: errors.Errorf(format, a...),
  }
 }
 
 func Code(err error) codes.Code {
-  if err = nil {
+  if err == nil {
     return codes.OK
   }
   if e, ok := err.(privateError); ok {
