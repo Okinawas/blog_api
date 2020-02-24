@@ -34,7 +34,7 @@ func (controller *UserController) Create(c Context) {
   }
 
   // TODO: （調査）structで定義したinterface{}は握りつぶしても良いのか
-  c.JSON(201)
+  c.JSON(201, "success")
 }
 
 func (controller *UserController) Index(c Context) {
@@ -51,7 +51,7 @@ func (controller *UserController) Show(c Context) {
   id, _ := strconv.Atoi(c.Param("id"))
   user, err := controller.Interactor.UserById(id)
   if err != nil {
-    c.JSON(500, errors.Errorf(codes.NotFInd, "Failed to create user: %s", err))
+    c.JSON(500, errors.Errorf(codes.NotFound, "Failed to create user: %s", err))
     return
   }
   c.JSON(200, user)

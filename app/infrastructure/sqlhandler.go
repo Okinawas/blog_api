@@ -17,7 +17,7 @@ func NewSqlHandler() database.SqlHnadler {
   }
 
   sqlHandler := new(SqlHandler)
-  sqlHandler.Conn := conn
+  sqlHandler.Conn = conn
 
   return sqlHandler
 }
@@ -27,7 +27,7 @@ func (handler *SqlHandler) Execute(statement string, args ...interface{}) (datab
   result, err := handler.Conn.Exec(statement, args...)
 
   if err != nil {
-    reutrn res, err
+    return res, err
   }
 
   res.Result = result

@@ -4,7 +4,6 @@ import (
   "github.com/Okinawas/blog_api/app/domain"
 )
 
-
 type UserRepository struct {
   SqlHandler
 }
